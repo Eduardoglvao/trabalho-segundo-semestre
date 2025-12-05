@@ -1,0 +1,182 @@
+/* =========================================
+   1. RESET E ESTILOS GERAIS
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #fbf4f4; /* Cor de fundo da página */
+    color: #333;
+}
+
+/* =========================================
+   2. CABEÇALHO
+   ========================================= */
+.header-bg {
+    background-color: #0c7df0;
+    padding: 10px 0;
+    color: white;
+}
+
+.topo-cima {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-right: 20px;
+    white-space: nowrap;
+}
+
+.topo-cima form {
+    flex-grow: 1;
+    max-width: 600px;
+}
+
+.topo-cima input[type="text"] {
+    width: 100%;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+}
+
+.icones {
+    font-size: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* MENU */
+.menu-categorias {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* =========================================
+   3. TÍTULOS E CONTEÚDO
+   ========================================= */
+.main-content {
+    text-align: center;
+    padding: 40px 0;
+}
+
+h3 {
+    font-size: 26px;
+    color: #222;
+}
+
+h4 {
+    margin-bottom: 30px;
+    color: #555;
+}
+
+/* =========================================
+   4. FORMULÁRIO
+   ========================================= */
+.formulario {
+    width: 60%;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Labels */
+h5 {
+    margin-left: 15px;
+    margin-bottom: 5px;
+    color: #444;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* TODOS OS INPUTS REDONDINHOS (CPF, EMAIL, TEL, NOME, ETC) */
+.formulario input[type="text"],
+.formulario input[type="email"],
+.formulario input[type="date"],
+.formulario input[type="tel"],
+.formulario select {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: none;
+    background-color: #e6e3e3;
+    margin-bottom: 15px;
+    outline: none;
+    font-size: 14px;
+}
+
+/* SELECT (Gênero) com o mesmo estilo */
+.formulario select {
+    appearance: none;
+    cursor: pointer;
+}
+
+/* --- DATA + GÊNERO LADO A LADO --- */
+.linha-dupla {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.campo-metade {
+    width: 50%;
+}
+
+.campo-metade input,
+.campo-metade select {
+    margin-bottom: 0 !important;
+}
+
+/* =========================================
+   5. CHECKBOXES
+   ========================================= */
+.checkbox-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.checkbox-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    cursor: pointer;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #111;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.checkbox-item input[type="checkbox"]:checked {
+    background-color: #111;
+    border-color: #111;
+}
+
+.checkbox-item label {
+    font-size: 12px;
+    color: #444;
+    line-height: 1.4;
+    cursor: pointer;
+}

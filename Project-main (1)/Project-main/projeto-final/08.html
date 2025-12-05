@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarmáciaDigi+ Cadastro</title>
+    <link rel="stylesheet" href="08.css">
+</head>
+<body>
+
+    <div class="header-bg">
+        
+        <div class="topo-cima">
+            <h1>♡ FarmáciaDigi+</h1>
+
+            <form action="#" method="get">
+                <input type="text" placeholder="Pesquisar na Digi+ 🔍">
+            </form>
+
+            <div class="icones">👤 🛒</div>
+        </div>
+
+        <div class="menu-categorias">
+            <h2>MEDICAMENTOS</h2>
+            <h2>GENÉRICOS</h2>
+            <h2>MAMÃE & BEBÊ</h2>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <h3>Vamos Começar?</h3>
+        <h4>Complete os dados e crie seu cadastro</h4>
+
+        <form class="formulario" action="http://127.0.0.1:5000/cadastro" method="POST">
+
+            <h5>CPF</h5>
+            <input 
+                type="text" 
+                name="cpf" 
+                id="cpf" 
+                maxlength="14" 
+                required 
+                placeholder="000.000.000-00">
+
+            <h5>Nome completo</h5>
+            <input 
+                type="text" 
+                name="nome" 
+                id="nome"
+                maxlength="70"
+                required>
+
+            <div class="linha-dupla">
+                <div class="campo-metade">
+                    <h5>Data de nascimento</h5>
+                    <input 
+                        type="date" 
+                        name="data" 
+                        id="data"
+                        required>
+                </div>
+
+                <div class="campo-metade">
+                    <h5>Gênero</h5>
+                    <select name="genero" id="genero" required>
+                        <option value="">Selecione</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Feminino</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+            </div>
+
+            <h5>Telefone Celular</h5>
+            <input 
+                type="text" 
+                name="Telefone" 
+                id="celular"
+                maxlength="15"
+                required
+                placeholder="(00) 00000-0000">
+
+            <h5>Seu email</h5>
+            <input 
+                type="email" 
+                name="email" 
+                id="email"
+                placeholder="exemplo@email.com"
+                required>
+
+            <div class="checkbox-item">
+                <input type="checkbox" id="ofertas" name="ofertas">
+                <label for="ofertas">
+                    Receber ofertas, comunicações e participações no programa de Laboratório.
+                </label>
+            </div>
+
+            <div class="checkbox-item">
+                <input type="checkbox" id="termos" name="termos" required>
+                <label for="termos">
+                    Li e aceito os termos de uso e Políticas de privacidade.
+                </label>
+            </div>
+
+            <button type="submit" class="btn-cadastrar">Cadastrar</button>
+
+        </form>
+    </div>
+
+
+    <!-- ================================
+         MÁSCARAS E VALIDAÇÕES JS
+    ================================== -->
+    <script>
+
+    // CPF → 000.000.000-00
+    document.getElementById("cpf").addEventListener("input", function () {
+        let value = this.value.replace(/\D/g, "");
+        if (value.length > 11) value = value.slice(0, 11);
+
+        value = value.replace(/(\d{3})(\d)/, "$1.$2");
+        value = value.replace(/(\d{3})(\d)/, "$1.$2");
+        value = value.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+
+        this.value = value;
+    });
+
+    // Telefone → (00) 00000-0000
+    document.getElementById("celular").addEventListener("input", function () {
+        let value = this.value.replace(/\D/g, "");
+        if (value.length > 11) value = value.slice(0, 11);
+
+        value = value.replace(/^(\d{2})(\d)/g, "($1) $2");
+        value = value.replace(/(\d{5})(\d)/, "$1-$2");
+
+        this.value = value;
+    });
+
+    // Nome → Apenas letras
+    document.getElementById("nome").addEventListener("input", function () {
+        this.value = this.value.replace(/[^a-zA-ZÀ-ÿ\s]/g, "");
+    });
+
+    // Email → verifica visualmente se tem @
+    document.getElementById("email").addEventListener("input", function () {
+        if (!this.value.includes("@")) {
+            this.style.border = "2px solid red";
+        } else {
+            this.style.border = "none";
+        }
+    });
+
+    </script>
+
+</body>
+</html>
